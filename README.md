@@ -1,4 +1,4 @@
-# Full-Stack-Assignment-1
+# Full-Stack-Assignment-2
 
 ## Explorer Project
 
@@ -66,7 +66,7 @@ public/ # Static assets
 
 ### - Full test coverage (auth, POI, models, upload)
 
-### - Deployment ready for Render:   https://explorer-app.onrender.com
+### - Deployment ready for Render:   https://full-stack-placemark-2.onrender.com
 
 ## Getting Started
 
