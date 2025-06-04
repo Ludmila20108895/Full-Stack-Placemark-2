@@ -1,81 +1,90 @@
-# Full-Stack-Assignment-2
 
-## Explorer Project
 
-Explorer is a full-stack web application that allows users to sign up, log in, and manage their favorite places (Points of Interest). Users can create, update, delete, and categorize POIs, upload images, and see location of them on a map. The app includes JWT-authenticated APIs, a test , and clean UI built with Handlebars and Bulma CSS.
 
-## In this Project I use ES Modules Instead of CommonJS
+Full-Stack-Assignment-2
+Explorer Project
+Explorer is a full-stack web application where users can sign up, log in, and manage their favorite places (Points of Interest). Users can create, update, delete, categorize POIs, upload images (via Cloudinary), and view them on a map. The app includes secure JWT-authenticated APIs, an admin dashboard, robust validation, and a clean UI built with Handlebars and Bulma CSS.
 
-Throughout this project, I chose to use the ES Module system using ( import / export ) instead of the older CommonJS style (require / module.exports). This is why you will see (type: "module") defined in the package.json.
+This project represents my updated submission for Assignment 2, including enhanced features, better structure, and improved testing.
 
-While in the lab I used CommonJS. I wanted to work with ES Modules because they are now the modern way to JavaScript and in Node.js (starting from version 14+ <https://nodejs.org/docs/latest-v13.x/api/esm.html> ). They are also more consistent with frontend JavaScript(in the browser),and easier to understand which uses the same (import/export) style.
+Key Features
+ User Signup & Login (using Cookies and JWT)
 
-Choosing ES Modules was a personal decision to challenge myself, to use more moders approach and build something that reflects development today. It also gave me a chance to practice working with newer tools and libraries.
+ Create / Read / Update / Delete POIs
 
-I am comfortable working with both CommonJS and ES Modules, and I have used CommonJS in earlier labs.
+ Categorize POIs (City, Beach, Cave, etc.)
 
-## Features in my project
+ Upload and display POI images via Cloudinary
 
-- User Signup & Login (with Cookies and JWT)
-- Create / Read / Update / Delete POIs
-- Categorize POIs by type (City, Beach, Cave, etc.)
-- Upload and display images for POIs
-- Google Maps integration for coordinates
-- Admin Dashboard (basic user management)
-- RESTful API (document-ready for Swagger)
-- Joi-based form and API validation
-- MongoDB models with Mongoose
-- Full test coverage for models, controllers, and APIs
+ Google Maps integration for POI coordinates
 
-## Technologies Used
+ Admin Dashboard for managing users and data
 
-- **Node.js + Hapi** for the backend server
-- **MongoDB + Mongoose** for data modeling
-- **Handlebars (HBS)** for templating
-- **Bulma CSS** for clean UI
-- **JWT** for token-based API security
-- **Joi** for input validation
-- **Multer** for file/image uploads
-- **Mocha + Chai** for testing
+ RESTful APIs with full test coverage
 
+ Joi-based form and API validation
+
+ MongoDB models using Mongoose
+
+ Swagger/OpenAPI-ready structure
+
+ Render deployment:
+https://full-stack-placemark-2.onrender.com
+
+Demo Login
+Use the following credentials to test the app without registering:
+
+Email: test@try.com
+
+Password: Pass123456
+
+
+
+Technologies Used
+Node.js + Hapi – Backend server
+
+MongoDB + Mongoose – Database and data modeling
+
+Cloudinary – Cloud-based image upload and storage
+
+Handlebars (HBS) – View templating
+
+Bulma CSS – Clean and responsive UI
+
+JWT – Token-based authentication
+
+Joi – Input validation
+
+Mocha + Chai – Testing framework
 ## Project Structure
 
-src/
-controllers/ # Page & API controllers
-models/ # Mongoose + Joi schemas
-routes/ # Route definitions (UI + API)
-utils/ # JWT, upload helpers
-validators/ # Joi validation schemas
-views/ # Handlebars templates
-tests/ # Unit & integration tests
-public/ # Static assets
+Assignment 2 Alignment
+Validation: user-validator.js, joi-schema.js
 
-## Assignment Alignment
+MongoDB Models: user-model.js, poi-model.js
 
-### - Joi Validation: (user-validator.js), (joi-schemas.js)
+RESTful APIs: user-api.js, poi-api.js, api-routes.js
 
-### - MongoDB Models: (user-model.js), (poi-model.js)
+JWT Authentication: jwt-utils.js
 
-### - RESTful API: (api-routes.js), (user-api.js), (poi-api.js)
+Cloudinary Image Storage: cloudinary.js + API integration
 
-### - JWT Auth: (jwt-utils.js)
+Admin Panel: Implemented in dashboard.hbs and controller
 
-### - Swagger/OpenAPI ready structure
+Testing: Full test coverage (auth, POIs, models, uploads)
 
-### - Admin Dashboard (in dashboard.hbs/controller)
+Swagger-ready: Project structure supports OpenAPI documentation
 
-### - Full test coverage (auth, POI, models, upload)
-
-### - Deployment ready for Render:   https://full-stack-placemark-2.onrender.com
-
-## Getting Started
 
 1. npm install
 
-2. Configure .env file:
+2. Create a .env file with:
+JWT_SECRET=yourSecretKey
+MONGO_URL=mongodb://localhost/explorer
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 
-   JWT_SECRET=SecretKey
-   MONGO_URL=mongodb://localhost/explorer
 
 3. Run in dev mode:
 
