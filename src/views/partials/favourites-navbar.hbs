@@ -1,0 +1,47 @@
+<nav
+  class="navbar is-primary"
+  role="navigation"
+  aria-label="main navigation"
+  style="margin-bottom: 20px; padding: 15px;"
+>
+
+  <div class="container">
+    <div class="navbar-brand">
+      <!-- Links to homepage, uses logo + "Explorer" name -->
+      <a class="navbar-item" href="/">
+        <img src="/images/explorer-logo1.png" alt="Explorer Logo" width="50" height="50" />
+        <strong class="ml-2">Explorer</strong>
+      </a>
+      <!-- Hamburger menu for mobile -->
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <!-- Navigation links on the right side of navbar (Takes user to the POI category listing (/pois)) -->
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+
+          <!-- Link to POI list page -->
+          <a href="/pois" class="button is-warning is-rounded mr-2"><strong> Point of Interest</strong></a>
+
+          <!-- Logout button -->
+          <a href="/logout" class="button is-warning is-rounded mr-2"><strong>Logout</strong></a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Main content area -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => { if (typeof L !== 'undefined') { const map =
+  L.map("favourites-map").setView([53.35, -6.26], 6); L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  { attribution: '&copy; OpenStreetMap contributors' }).addTo(map); const poiData =
+  {{{json favourites}}}; poiData.forEach((poi) => { if (poi.latitude && poi.longitude) { L.marker([poi.latitude,
+  poi.longitude]) .addTo(map) .bindPopup(`<strong>${poi.name}</strong><br>${poi.category}<br>Visited:
+  ${poi.visitDate}`); } }); } else { console.error("Leaflet (L) is not defined."); } });
+</script>

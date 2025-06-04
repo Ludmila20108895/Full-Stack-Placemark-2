@@ -1,0 +1,41 @@
+<nav
+  class="navbar is-primary"
+  role="navigation"
+  aria-label="main navigation"
+  style="margin-bottom: 20px; padding: 15px;"
+>
+
+  <div class="container">
+    <div class="navbar-brand">
+      <!-- Links to homepage, uses logo + "Explorer" name -->
+      <a class="navbar-item" href="/">
+        <img src="/images/explorer-logo1.png" alt="Explorer Logo" width="50" height="50" />
+        <strong class="ml-2">Explorer</strong>
+      </a>
+      <!-- burger menu for mobile use -->
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <!-- Right side menu with Sign Up / Login -->
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <!-- Sign Up button (Direct users to the pages) -->
+          <a href="/signup" class="button is-warning is-rounded ml-2"><strong>Sign Up</strong> </a>
+          <!-- Log In button (Direct users to the pages) -->
+          <a href="/login" class="button is-warning is-rounded ml-2"><strong>Log In</strong></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu toggle functionality: (JavaScript snippet: Enables mobile-friendly collapsing navbar) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => { const burger = document.querySelector(".navbar-burger"); const
+  menu = document.querySelector("#navMenu"); burger.addEventListener("click", () => {
+  menu.classList.toggle("is-active"); burger.classList.toggle("is-active"); icon }); });
+</script>

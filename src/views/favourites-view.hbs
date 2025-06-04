@@ -1,0 +1,88 @@
+{{> favourites-navbar}}
+
+<section class="section">
+  <div class="container">
+    <h1 class="title is-2 has-text-weight-bold has-text-primary has-text-centered">
+      ❤️ My Favourite Places
+    </h1>
+
+    <div class="columns">
+      <!-- Left Column: Map -->
+      <div class="column is-half">
+        <div class="box has-background-light p-5">
+          <h2 class="title is-4 has-text-primary">🗺️ Location on Map</h2>
+          <div id="favourites-map" style="height: 400px;"></div>
+        </div>
+      </div>
+
+      <!-- Right Column: Favourite Places List -->
+      <div class="column is-half">
+        <div class="box has-background-light p-5">
+          <h2 class="title is-4 has-text-primary">📍 Favourite Places</h2>
+           
+
+          {{#if favourites.length}}
+          <div style="max-height: 400px; overflow-y: auto;">
+            <table class="table is-fullwidth is-striped">
+              <tbody>
+                {{#each favourites}}
+                  <tr>
+                    <td><strong>{{name}}</strong></td>
+                    <td><strong>{{visitDate}}</strong></td>
+                    <td class="has-text-right">
+                      <!-- View Button -->
+                      <a href="/added-places/{{_id}}" class="button is-warning is-rounded mr-2" title="View Details">
+                        <span class="icon">
+                          <i class="fas fa-folder-open"></i>
+                        </span>
+                      </a>
+
+                      <!-- Delete favorite place Button -->
+                      <form action="/pois/{{_id}}/favourite" method="POST" style="display:inline;">
+                        <button class="button is-warning is-rounded" title="Remove from Favourites">
+                          <span class="icon">
+                            <i class="fas fa-heart-broken"></i>
+                          </span>
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+            </div>
+          {{else}}
+            <p class="has-text-grey-light">You haven't added any favourites yet.</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+</section>
+
+<script>
+  //
+  if (typeof L !== 'undefined') {
+    const map = L.map("favourites-map").setView([53.35, -6.26], 6); // Ireland default
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const poiData = {{{json favourites}}};
+
+    poiData.forEach((poi) => {
+      if (poi.latitude && poi.longitude) {
+        L.marker([poi.latitude, poi.longitude])
+          .addTo(map)
+          .bindPopup(`<strong>${poi.name}</strong><br>${poi.category}<br>Visited: ${poi.visitDate}`);
+      }
+    });
+  } else {
+    console.error("Leaflet (L) is not loaded. Make sure you include Leaflet scripts in your layout.");
+  }
+</script>
+
+{{> footer}}

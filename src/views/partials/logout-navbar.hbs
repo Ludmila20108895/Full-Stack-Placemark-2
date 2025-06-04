@@ -1,0 +1,44 @@
+<nav
+  class="navbar is-primary"
+  role="navigation"
+  aria-label="main navigation"
+  style="margin-bottom: 20px; padding: 15px;"
+>
+
+  <div class="container">
+    <div class="navbar-brand">
+      <!-- Links to homepage, uses logo + "Explorer" name -->
+      <a class="navbar-item" href="/">
+        <img src="/images/explorer-logo1.png" alt="Explorer Logo" width="50" height="50" />
+        <strong class="ml-2">Explorer</strong>
+      </a>
+      <!-- Hamburger menu for mobile -->
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <!-- Navigation links on the right side of navbar (Takes user to the POI category listing (/pois)) -->
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <!-- Link to POI list page -->
+          <a href="/pois" class="button is-warning is-rounded mr-2"><strong> Point of Interest</strong></a>
+          <a href="/favourites" class="button is-warning is-rounded"><strong> Favourites Places</strong></a>
+
+          <!-- Logout button -->
+          <a href="/logout" class="button is-warning is-rounded mr-2"><strong>Logout</strong></a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu toggle functionality: (JavaScript snippet: Enables mobile-friendly collapsing navbar) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => { const burger = document.querySelector(".navbar-burger"); const
+  menu = document.querySelector("#navMenu"); burger.addEventListener("click", () => {
+  menu.classList.toggle("is-active"); burger.classList.toggle("is-active"); }); });
+</script>

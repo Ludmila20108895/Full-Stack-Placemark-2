@@ -1,0 +1,43 @@
+{{> navbar}}
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <h1 class="title">Sign up</h1>
+
+    <!-- Render any validation or form errors using the error partial -->
+     {{> error}}
+
+
+        <form action="/signup" method="POST"> <!-- Signup form (POST request to /signup) -->
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="field-body">
+              <div class="field"> <!-- Split fields for firstName and lastName for cleaner UI -->
+                <input class="input" type="text" placeholder="Enter first name" name="firstName" required>
+              </div>
+              <div class="field">
+                <input class="input" type="text" placeholder="Enter last name" name="lastName" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Email</label>
+            <input class="input" type="email" placeholder="Enter email" name="email" required>
+          </div>
+
+          <div class="field"> <!-- Handles form layout, spacing, and full-width button -->
+            <label class="label">Password</label>
+            <input class="input" type="password" placeholder="Enter Password" name="password" required>
+          </div>
+
+          <button class="button is-warning is-fullwidth">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{> footer}}

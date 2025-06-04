@@ -1,0 +1,15 @@
+<!-- this block only renders when an errors array exists in context -->
+{{#if errors}}
+
+  <!-- Display each error as a bullet point -->
+  <div class="notification is-light is-warning">
+    <strong>There was a problem...</strong>
+    <ul style="list-style-type: disc; padding-left: 20px;">
+
+      <!-- Loops through the array and prints each error message   -->
+      {{#each errors}}
+        <li>{{this.message}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
